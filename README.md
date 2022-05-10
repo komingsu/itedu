@@ -17,6 +17,9 @@ Here are some ideas to get you started:
 -->
 
 ## :school: Education
+
+* 교육자료출처[yebiny (Nibey) (github.com)](https://github.com/yebiny)
+
 ### :snake: Python 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=yebiny&repo=SkillTreePython&theme=github_dark)](https://github.com/yebiny/SkillTreePython)
 ### 📊 DataAnalysis
