@@ -1,1 +1,1 @@
-pdf files for lecture
+딥러닝 ㄱㄱ
