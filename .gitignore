@@ -29,3 +29,5 @@ SkillTreePython-DeepLearning-main/Tensorflow_core/기본서/temp/training_2/chec
 SkillTreePython-DeepLearning-main/Tensorflow_core/기본서/temp/training_1/checkpoint
 *.pb
 SkillTreePython-DeepLearning-main/Tensorflow_core/기본서/temp/checkpoints/checkpoint
+*.model
+*.npy
