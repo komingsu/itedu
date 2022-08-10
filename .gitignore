@@ -1,14 +1,11 @@
-
+*.gz
+*.zip
 *.csv
-*.csv
-*.CSV
 *.CSV
 *.png
-*.CSV
 SkillTreePython-DeepLearning-main/00.추가학습/coco.names
 SkillTreePython-DeepLearning-main/00.추가학습/opencv_example.mp4
 SkillTreePython-DeepLearning-main/00.추가학습/opencv_example2.jpg
-*.jpg
 *.jpg
 SkillTreePython-DeepLearning-main/coco.names
 SkillTreePython-DeepLearning-main/00.추가학습/yolov3.weights
@@ -31,3 +28,7 @@ SkillTreePython-DeepLearning-main/Tensorflow_core/기본서/temp/training_1/chec
 SkillTreePython-DeepLearning-main/Tensorflow_core/기본서/temp/checkpoints/checkpoint
 *.model
 *.npy
+Paper_with_code/.ipynb_checkpoints/ch04_02_multiclass_segmentation-checkpoint.ipynb
+*.v2
+*checkpoint.ipynb
+Web UI/.ipynb_checkpoints/Untitled-checkpoint.ipynb
