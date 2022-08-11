@@ -1,5 +1,5 @@
 # GAN
 
-# Build GAN model
+## Build GAN model
 
-# BUild cGAN model
+## BUild cGAN model
