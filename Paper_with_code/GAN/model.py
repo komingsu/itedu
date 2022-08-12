@@ -8,7 +8,7 @@ class BuildModel():
         self.z_dim = z_dim
         self.label_dim = label_dim
 
-    def build_gene(self, activation = 'selu',last_activation='sigmoid', kernel_size=5):
+    def build_gene(self, activation = 'relu',last_activation='sigmoid', kernel_size=5):
         h, w, ch = self.img_shape
         z = layers.Input(shape=[self.z_dim,], name="noise")
         if self.label_dim:
@@ -24,7 +24,7 @@ class BuildModel():
         y = layers.Conv2DTranspose(ch, kernel_size=5, padding='same', strides=2, activation=last_activation)(y)
         
         if self.label_dim:
-            model = models.Model([z, c], y, name='Generator')
+            model = models.Model([z, c], y, name='C_Generator')
         else:
             model = models.Model(z, y, name='Generator')
         return model
@@ -36,24 +36,24 @@ class BuildModel():
         def _condition_vector(x):
             y = K.expand_dims(x, axis=1)
             y = K.expand_dims(y, axis=1)
-            y = K.tile(y, [1, h, w, 1])
+            y = K.tile(y, [1, int(h/2), int(w/2), 1])
             return y
         
         if self.label_dim:
-            c = layers.Input(shape= self.label_dim, name='condition')
-            c = layers.Lambda(_condition_vector)(c)
-            y = layers.concatenate([x, c], axis=3)
-            y = layers.Conv2D(64, kernel_size=kernel_size, strides=2, padding='same', activation=activation)(y)
+            y = layers.Conv2D(64, kernel_size=kernel_size, strides=2, padding='same', activation=activation)(x)
+            in_c = layers.Input(shape= self.label_dim, name='condition')
+            c = layers.Lambda(_condition_vector)(in_c)
+            y = layers.concatenate([y, c], axis=3)
         else:
             y = layers.Conv2D(64, kernel_size=kernel_size, strides=2, padding='same', activation=activation)(x)
         y = layers.Dropout(.5)(y)
         y = layers.Conv2D(128, kernel_size=kernel_size, strides=2, padding='same', activation=activation)(y)
         y = layers.Dropout(.5)(y)
-        y = layers.Flatten()(y)
-
+        y = layers.GlobalAveragePooling2D()(y)
+        y = layers.Dense(64, activation="relu")(y)
         y = layers.Dense(1, activation=last_activation)(y)
         if self.label_dim:
-            model = models.Model([x,c], y, name='Discriminator')
+            model = models.Model([x,in_c], y, name='C_Discriminator')
         else:
             model = models.Model(x, y, name='Discriminator')
         return model
