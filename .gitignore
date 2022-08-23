@@ -37,3 +37,5 @@ Computer_system/컴퓨터시스템_01주차_01차시.pdf
 Computer_system/컴퓨터시스템_01주차_02차시.pdf
 Computer_system/컴퓨터시스템_2주차_1차시.pdf
 SkillTreePython-DeepLearning-main/01.딥러닝with텐서플로우-basic/pdf/딥러닝강의01.pdf
+*.json
+*.tfrecord-00000-of-00001
