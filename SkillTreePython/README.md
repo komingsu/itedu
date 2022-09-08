@@ -1,11 +1,3 @@
-# Skill Tree Python
-
-
-```
-Youn Yebin
-email : yebinyoun@gmail.com
-github : https://github.com/yebiny
-```
 
 ## 목차
 * 1-2. 변수 선언하기
